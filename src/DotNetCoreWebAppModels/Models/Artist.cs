@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using Core.Common.Data.Interfaces;
 using Core.Common.Data.Models;
 using Core.Common.Utilities;
@@ -16,6 +17,7 @@ namespace DotNetCoreWebAppModels.Models
             DateModified = DateCreated;
         }
 
+        [Key]
         public long ArtistId { get; set; }
   
         public string Name { get; set; }

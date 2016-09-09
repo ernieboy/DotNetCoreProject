@@ -19,39 +19,12 @@ namespace DotNetCoreWebAppDataAccess.Repositories
         {
             Context = context;
         }
-
-        protected override IEnumerable<Artist> FindAllByCriteria(            
-            int? pageNumber,
-            int? pageSize,
-            out int totalRecords,
-            string sortColumn,
-            string sortDirection,
-            ExpressionStarter<Artist> predicate)
+        /*
+        override protected async Task<Artist> FindSingleEntityById(int id)
         {
-            int pageIndex = pageNumber ?? 1;
-            int sizeOfPage = pageSize ?? 10;
-            if (pageIndex < 1) pageIndex = 1;
-            if (sizeOfPage < 1) sizeOfPage = 5;
-            int skipValue = (sizeOfPage * (pageIndex - 1));
-            var searchFilter = predicate ?? BuildDefaultSearchFilterPredicate();
-
-            totalRecords =
-               Context.Artist.AsExpandable().Where(searchFilter).OrderBy(am => am.Name).Count();
-            var artists =
-                Context.Artist.AsExpandable()
-                    .Where(searchFilter)
-                    .OrderBy($"{sortColumn} {sortDirection}")
-                    .Skip(skipValue)
-                    .Take(sizeOfPage)
-                    .ToList();
-            return artists;
-
+            return await Task.FromResult(Context.Set<Artist>().SingleOrDefault(x => x.ArtistId == id));
         }
-
-        override protected async  Task<Artist> FindSingleEntityById(int id)
-        {
-            return await  Task.FromResult(Context.Set<Artist>().SingleOrDefault(x => x.ArtistId == id));
-        }
+        */
 
         protected override void AddOrUpdate(Artist entity)
         {
