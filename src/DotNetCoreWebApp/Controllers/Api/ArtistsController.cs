@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Core.Common.Data.Models;
-using DotNetCoreWebApp.Controllers.Api;
 using DotNetCoreWebAppBusiness.Business.Interfaces;
 using DotNetCoreWebAppModels.Models;
 using Microsoft.AspNetCore.Mvc;

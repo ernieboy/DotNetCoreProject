@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Core.Common.Utilities;
 using Core.Common.Data.Models;
 using Core.Common.Data.Interfaces;
 
@@ -19,7 +18,7 @@ namespace DotNetCoreWebApp.Business
                     out int offsetUpperBound,
                     out int totalNumberOfPages,
                     OperationResult result,
-                    params string[] keywords)
+                    string[] keywords)
                     {
                         throw new NotImplementedException();
                     }
