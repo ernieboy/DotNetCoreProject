@@ -1,8 +1,14 @@
 
-<br />
-<artist> <i class="fa fa-spin fa-circle-o-notch"></i>Loading...</artist>
+@model DotNetCoreWebApp.EditModels.ArtistEditModel
 
+<br /> <br />
+<form asp-controller="Chinook"
+      asp-action="EditArtist">
 
-@section scripts {
-    @await Html.PartialAsync("_Angular2ScriptsImport.cshtml", "app/components/artists/artist-edit.component")      
-}
+    <label asp-for="Name">Name</label>
+    <input asp-for="Name"/>
+    <input type="hidden" asp-for="ArtistId"/>
+
+    <input type="submit" value="Save" />
+
+</form>

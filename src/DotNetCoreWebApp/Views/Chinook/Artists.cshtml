@@ -10,64 +10,74 @@
 
 
 
-@if(Model == null)
+@if (Model == null)
 {
     <div>Sorry there was a probleam loading data from the database.</div>
-} else
+}
+else
 {
-    if(Model.ArtistsList.Count() > 0)
+    if (Model.ArtistsList.Count() > 0)
     {
-    <table class="table">
-    <tr>
-        <th>Artist Id</th>
-        <th>Name</th>
-        <th>Albums count</th>
-    </tr>
-    @foreach (var artist in Model.ArtistsList)
-    {
-        <tr>
-            <td>
-               @artist.ArtistId
-            </td>
-            <td>
-               @artist.Name
-            </td>
-            <td>
-                @artist.Album.Count()
-            </td>
-        </tr>
-    }
+        <table class="table">
+            <tr>
+                <th>Artist Id</th>
+                <th>Name</th>
+                <th>Albums count</th>
+                <th></th>
+            </tr>
+            @foreach (var artist in Model.ArtistsList)
+            {
+                <tr>
+                    <td>
+                        @artist.ArtistId
+                    </td>
+                    <td>
+                        @artist.Name
+                    </td>
+                    <td>
+                        @artist.Album.Count()
+                    </td>
+                    <td>
+                        <a asp-controller="Chinook"
+                           asp-action="EditArtist"
+                           asp-route-id="@artist.ArtistId">
+                            Edit
+                        </a>
+                    </td>
+                </tr>
+            }
 
-    </table>
+        </table>
     }
-    else 
+    else
     {
         <div>Sorry, there is nothing to show!</div>
     }
-<form asp-controller="Chinook" asp-action="Artists" method="GET">
-    <label asp-for="SearchTerms">Search terms (separated by comma)</label>
-    <input asp-for="SearchTerms" />
-    
+    <form asp-controller="Chinook" asp-action="Artists" method="GET">
+        <label asp-for="SearchTerms">Search terms (separated by comma)</label>
+        <input asp-for="SearchTerms" />
 
-    <label asp-for="SortCol">Sort column</label>
-    <select asp-for="SortCol" asp-items="Model.SortColumns" > </select>
-    <label asp-for="SortDir">Sort Direction</label>
-    <select asp-for="SortDir" asp-items="Model.SortDirections" > </select>
 
-    <input type="submit" value="Search" />    
-    
-</form>
-    @await Component.InvokeAsync("ListPager", 
-            new {
-                controllerName = "Chinook", 
-                controllerAction = "Artists", 
-                totalNumberOfItems = ViewBag.totalRecords, 
+        <label asp-for="SortCol">Sort column</label>
+        <select asp-for="SortCol" asp-items="Model.SortColumns"> </select>
+        <label asp-for="SortDir">Sort Direction</label>
+        <select asp-for="SortDir" asp-items="Model.SortDirections"> </select>
+
+        <input type="submit" value="Search" />
+
+    </form>
+    @await Component.InvokeAsync("ListPager",
+            new
+            {
+                controllerName = "Chinook",
+                controllerAction = "Artists",
+                totalNumberOfItems = ViewBag.totalRecords,
                 pageNumber = ViewBag.pageIndex,
-                pageSize = ViewBag.sizeOfPage, 
-                totalNumberOfPages = ViewBag.totalNumberOfPages, 
-                offset =  ViewBag.offset,
+                pageSize = ViewBag.sizeOfPage,
+                totalNumberOfPages = ViewBag.totalNumberOfPages,
+                offset = ViewBag.offset,
                 offsetUpperBound = ViewBag.offsetUpperBound,
-                searchTerms = ViewBag.searchTerms,   
+                searchTerms = ViewBag.searchTerms,
                 sortCol = ViewBag.sortCol,
                 sortDir = ViewBag.sortDir
             })
@@ -75,4 +85,3 @@
 
 
 
-    

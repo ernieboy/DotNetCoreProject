@@ -49,12 +49,34 @@ namespace DotNetCoreWebApp.Controllers
             });
         }
 
-        public IActionResult EditArtist(int id)
+        public async Task<IActionResult> EditArtist(int id)
         {
-            return ExecuteExceptionsHandledActionResult(() =>
-          {
-              return View();
+            return await ExecuteExceptionsHandledAsyncActionResult(async () =>
+            {
+                Artist fromDb = await _artistEntityBusiness.FindEntityById(id);
+              var model = new ArtistEditModel {Name = fromDb.Name, ArtistId = fromDb.ArtistId};
+              return View(model);
           });
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditArtist(ArtistEditModel model)
+        {
+            if (model == null) return View();
+
+            return await ExecuteExceptionsHandledAsyncActionResult(async () =>
+            {
+                var artist = new Artist
+                {
+                    Name = model.Name,
+                    ArtistId = model.ArtistId,
+                    ObjectState = ObjectState.Modified,
+                    Deleted = false
+                };
+                await _artistEntityBusiness.PersistEntity(artist);
+                return View(model);
+            });
         }
 
         public IActionResult AddArtist()
