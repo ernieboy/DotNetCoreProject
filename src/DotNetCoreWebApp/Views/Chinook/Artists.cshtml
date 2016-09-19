@@ -47,6 +47,11 @@ else
                            asp-action="EditArtist"
                            asp-route-id="@artist.ArtistId">
                             Edit
+                        </a> |
+                        <a asp-controller="Chinook"
+                           asp-action="DeleteArtist"
+                           asp-route-id="@artist.ArtistId">
+                            Delete
                         </a>
                     </td>
                 </tr>

@@ -55,8 +55,7 @@ namespace DotNetCoreWebApp.Controllers
             return await ExecuteExceptionsHandledAsyncActionResult(async () =>
             {
                 Artist fromDb = await _artistEntityBusiness.FindEntityById(id);
-                ArtistEditModel model = ArtistMapper.MapArtistEditModelFromArtist(fromDb);
-
+                ArtistEditModel model = TypesMapper.Map<Artist,ArtistEditModel>(fromDb);
 
               return View(model);
           });
@@ -71,7 +70,7 @@ namespace DotNetCoreWebApp.Controllers
             {
                 model.ObjectState = ObjectState.Modified;
                 model.Deleted = false;
-                Artist artist = ArtistMapper.MapArtistFromArtistEditModel(model);
+                Artist artist = TypesMapper.Map<ArtistEditModel,Artist>(model);
 
                 await _artistEntityBusiness.PersistEntity(artist);
                 TempData["saved"] = "y";
@@ -97,7 +96,7 @@ namespace DotNetCoreWebApp.Controllers
             return await ExecuteExceptionsHandledAsyncActionResult(async () =>
             {
                 model.ObjectState = ObjectState.Added;
-                var artist = ArtistMapper.MapArtistFromArtistEditModel(model);
+                Artist artist = TypesMapper.Map<ArtistEditModel, Artist>(model);
                 await _artistEntityBusiness.PersistEntity(artist);
                 return View(model);
             });
@@ -108,10 +107,12 @@ namespace DotNetCoreWebApp.Controllers
             return View();
         }
 
-        public IActionResult DeleteArtist() 
+        public async Task<IActionResult> DeleteArtist(int id) 
         {
-            return ExecuteExceptionsHandledActionResult(() =>
+            return await ExecuteExceptionsHandledAsyncActionResult(async () =>
             {
+                Artist fromDb = await _artistEntityBusiness.FindEntityById(id);
+                ArtistEditModel model = TypesMapper.Map<Artist, ArtistEditModel>(fromDb);
                 return View();
             });
         }
