@@ -4,6 +4,7 @@ using Core.Common.Data.Business;
 using Core.Common.Data.Interfaces;
 using Core.Common.Data.Models;
 using DotNetCoreWebApp.EditModels;
+using DotNetCoreWebApp.ObjectMappers;
 using DotNetCoreWebApp.ViewModels;
 using DotNetCoreWebAppModels.Models;
 using Microsoft.AspNetCore.Hosting;
@@ -54,7 +55,9 @@ namespace DotNetCoreWebApp.Controllers
             return await ExecuteExceptionsHandledAsyncActionResult(async () =>
             {
                 Artist fromDb = await _artistEntityBusiness.FindEntityById(id);
-              var model = new ArtistEditModel {Name = fromDb.Name, ArtistId = fromDb.ArtistId};
+                ArtistEditModel model = ArtistMapper.MapArtistEditModelFromArtist(fromDb);
+
+
               return View(model);
           });
         }
@@ -64,16 +67,12 @@ namespace DotNetCoreWebApp.Controllers
         public async Task<IActionResult> EditArtist(ArtistEditModel model)
         {
             if (model == null) return View();
-
             return await ExecuteExceptionsHandledAsyncActionResult(async () =>
             {
-                var artist = new Artist
-                {
-                    Name = model.Name,
-                    ArtistId = model.ArtistId,
-                    ObjectState = ObjectState.Modified,
-                    Deleted = false
-                };
+                model.ObjectState = ObjectState.Modified;
+                model.Deleted = false;
+                Artist artist = ArtistMapper.MapArtistFromArtistEditModel(model);
+
                 await _artistEntityBusiness.PersistEntity(artist);
                 TempData["saved"] = "y";
                 return RedirectToAction("Artists");
@@ -97,12 +96,8 @@ namespace DotNetCoreWebApp.Controllers
 
             return await ExecuteExceptionsHandledAsyncActionResult(async () =>
             {
-                var artist = new Artist
-                {
-                    Name = model.Name,
-                    ObjectState = ObjectState.Added,
-                    Deleted = false
-                };
+                model.ObjectState = ObjectState.Added;
+                var artist = ArtistMapper.MapArtistFromArtistEditModel(model);
                 await _artistEntityBusiness.PersistEntity(artist);
                 return View(model);
             });
@@ -111,6 +106,14 @@ namespace DotNetCoreWebApp.Controllers
         public IActionResult ArtistsAngular()
         {
             return View();
+        }
+
+        public IActionResult DeleteArtist() 
+        {
+            return ExecuteExceptionsHandledActionResult(() =>
+            {
+                return View();
+            });
         }
 
         /*
