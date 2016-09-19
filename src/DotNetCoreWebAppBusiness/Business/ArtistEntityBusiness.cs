@@ -1,7 +1,5 @@
 using System;
 using System.Linq.Expressions;
-using Core.Common.Data.Models;
-using Core.Common.Extensions;
 using Core.Common.Data.Business;
 using DotNetCoreWebAppBusiness.Business.Interfaces;
 using DotNetCoreWebAppModels.Models;
@@ -15,37 +13,7 @@ namespace DotNetCoreWebAppBusiness.Business
     {
         public ArtistEntityBusiness(IDataRepository<Artist> repository): base(repository)
         {}
-
-        public OperationResult ListItems(
-            int? pageNumber, int? pageSize, string sortCol, string sortDir, string searchTerms)
-        {
-            var result = new OperationResult();
-            sortCol = sortCol ?? "Name";
-            sortDir = sortDir ?? "ASC";
-
-            string[] searchKeywords = !searchTerms.IsNullOrWhiteSpace() ? searchTerms.Split(',') : new string[] { };
-            result.AddResultObject("keywords", searchKeywords);
-
-            int totalNumberOfRecords;
-            int totalNumberOfPages;
-            int offset;
-            int offsetUpperBound;
-
-            var list = FindAllEntitiesByCriteria(
-                        pageNumber,
-                         pageSize,
-                         out totalNumberOfRecords,
-                         sortCol,
-                        sortDir,
-                        out offset,
-                        out offsetUpperBound,
-                        out totalNumberOfPages,
-                        result,
-                        BuildSearchFilterPredicate(searchKeywords));
-            result.AddResultObject("list", list);
-            return result;
-        }
-
+        
         /// <summary>
         /// Returns a predicate to filter the data by based on the keywords supplied
         /// </summary>

@@ -4,7 +4,6 @@ using Core.Common.Data.Business;
 using Core.Common.Data.Interfaces;
 using Core.Common.Data.Models;
 using DotNetCoreWebApp.EditModels;
-using DotNetCoreWebApp.ObjectMappers;
 using DotNetCoreWebApp.ViewModels;
 using DotNetCoreWebAppModels.Models;
 using Microsoft.AspNetCore.Hosting;
@@ -44,7 +43,7 @@ namespace DotNetCoreWebApp.Controllers
                 ViewBag.sortCol = result.ObjectsDictionary["sortCol"];
                 ViewBag.sortDir = result.ObjectsDictionary["sortDir"];
 
-                var model = new ArtistViewModel {ArtistsList = result.ObjectsDictionary["list"] as IEnumerable<Artist>};
+                var model = new ArtistViewModel { ArtistsList = result.ObjectsDictionary["list"] as IEnumerable<Artist> };
 
                 return View(model);
             });
@@ -55,10 +54,10 @@ namespace DotNetCoreWebApp.Controllers
             return await ExecuteExceptionsHandledAsyncActionResult(async () =>
             {
                 Artist fromDb = await _artistEntityBusiness.FindEntityById(id);
-                ArtistEditModel model = TypesMapper.Map<Artist,ArtistEditModel>(fromDb);
+                ArtistEditModel model = _artistEntityBusiness.Map<Artist, ArtistEditModel>(fromDb);
 
-              return View(model);
-          });
+                return View(model);
+            });
         }
 
         [HttpPost]
@@ -70,7 +69,7 @@ namespace DotNetCoreWebApp.Controllers
             {
                 model.ObjectState = ObjectState.Modified;
                 model.Deleted = false;
-                Artist artist = TypesMapper.Map<ArtistEditModel,Artist>(model);
+                Artist artist = _artistEntityBusiness.Map<ArtistEditModel, Artist>(model);
 
                 await _artistEntityBusiness.PersistEntity(artist);
                 TempData["saved"] = "y";
@@ -96,7 +95,7 @@ namespace DotNetCoreWebApp.Controllers
             return await ExecuteExceptionsHandledAsyncActionResult(async () =>
             {
                 model.ObjectState = ObjectState.Added;
-                Artist artist = TypesMapper.Map<ArtistEditModel, Artist>(model);
+                Artist artist = _artistEntityBusiness.Map<ArtistEditModel, Artist>(model);
                 await _artistEntityBusiness.PersistEntity(artist);
                 return View(model);
             });
@@ -107,13 +106,38 @@ namespace DotNetCoreWebApp.Controllers
             return View();
         }
 
-        public async Task<IActionResult> DeleteArtist(int id) 
+        public async Task<IActionResult> DeleteArtist(long id)
         {
             return await ExecuteExceptionsHandledAsyncActionResult(async () =>
             {
                 Artist fromDb = await _artistEntityBusiness.FindEntityById(id);
-                ArtistEditModel model = TypesMapper.Map<Artist, ArtistEditModel>(fromDb);
-                return View();
+                ArtistDeleteModel model = _artistEntityBusiness.Map<Artist, ArtistDeleteModel>(fromDb);
+                return View(model);
+            });
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteArtist(ArtistDeleteModel model)
+        {
+            return await ExecuteExceptionsHandledAsyncActionResult(async () =>
+            {
+                if (!ModelState.IsValid) return View(model);
+
+                if (!model.DeleteConfirmed)
+                {
+                    Artist artistFromDb = await _artistEntityBusiness.FindEntityById(model.ArtistId);
+                    model = _artistEntityBusiness.Map<Artist, ArtistDeleteModel>(artistFromDb);
+                    ModelState.AddModelError("", "Please confirm that you would really like to delete this item.");
+                    return View(model);
+                }
+
+                Artist artist =  _artistEntityBusiness.Map<ArtistDeleteModel, Artist>(model);
+                artist.Deleted = true;
+                artist.ObjectState = ObjectState.Deleted;
+                await _artistEntityBusiness.PersistEntity(artist);
+                TempData["deletedOk"] = true;
+                return RedirectToAction("Artists");
             });
         }
 

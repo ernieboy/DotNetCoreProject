@@ -13,6 +13,11 @@
     <div class="alert alert-success">Record saved successfully</div>
 }
 
+@if (TempData["deletedOk"] != null)
+{
+    <div class="alert alert-success">Record deleted successfully</div>
+}
+
 
 
 @if (Model == null)
