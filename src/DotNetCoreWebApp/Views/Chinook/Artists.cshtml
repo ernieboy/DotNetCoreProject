@@ -8,6 +8,11 @@
 
 <a href="/Chinook/AddArtist">Add item</a>
 
+@if (TempData["saved"] != null)
+{
+    <div class="alert alert-success">Record saved successfully</div>
+}
+
 
 
 @if (Model == null)

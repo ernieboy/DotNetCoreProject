@@ -1,16 +1,18 @@
 {
   "userSecretsId": "aspnet-DotNetCoreWebApp-0799fe3e-6eaf-4c5f-b40e-7c6bfd5dfa9a",
   "dependencies": {
-    "DotNetCoreLibrary" : {
-      "target" : "project"
+    "DotNetCoreLibrary": {
+      "target": "project"
     },
-    "DotNetCoreWebAppBusiness" : {
-      "target" : "project"
+    "DotNetCoreWebAppBusiness": {
+      "target": "project"
     },
     "Microsoft.NETCore.App": {
       "version": "1.0.0",
       "type": "platform"
     },
+    "Microsoft.AspNetCore.Session": "1.0.0",
+    "Microsoft.Extensions.Caching.Memory": "1.0.0",
     "Microsoft.AspNetCore.Authentication.Cookies": "1.0.0",
     "Microsoft.AspNetCore.Diagnostics": "1.0.0",
     "Microsoft.EntityFrameworkCore.SqlServer": "1.0.0",
@@ -46,7 +48,8 @@
     "Microsoft.VisualStudio.Web.CodeGenerators.Mvc": {
       "version": "1.0.0-preview2-final",
       "type": "build"
-    }
+    },
+    "Microsoft.AspNetCore.Session": "1.0.0"
   },
   "DotNetCoreBaseLibrary": "1.0.0-*",
   "tools": {

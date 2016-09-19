@@ -19,7 +19,9 @@ namespace DotNetCoreWebApp.Controllers
             try
             {
                 result = codeToExecute.Invoke();
-            }catch(Exception ex)
+                return result;
+            }
+            catch(Exception ex)
             {                
                 string error = Error.BuildExceptionDetail(ex, new StringBuilder()).ToString();
                 //Log it
@@ -35,6 +37,7 @@ namespace DotNetCoreWebApp.Controllers
             try
             {
                 result = await codeToExecute.Invoke();
+                return result;
             }catch(Exception ex)
             {                
                 string error = Error.BuildExceptionDetail(ex, new StringBuilder()).ToString();

@@ -75,7 +75,8 @@ namespace DotNetCoreWebApp.Controllers
                     Deleted = false
                 };
                 await _artistEntityBusiness.PersistEntity(artist);
-                return View(model);
+                TempData["saved"] = "y";
+                return RedirectToAction("Artists");
             });
         }
 
@@ -112,6 +113,7 @@ namespace DotNetCoreWebApp.Controllers
             return View();
         }
 
+        /*
         public ActionResult AppPath()
         {
             string webRootPath = hostingEnvironment.WebRootPath;
@@ -119,5 +121,6 @@ namespace DotNetCoreWebApp.Controllers
 
             return Content(webRootPath + "\n" + contentRootPath);
         }
+        */
     }
 }

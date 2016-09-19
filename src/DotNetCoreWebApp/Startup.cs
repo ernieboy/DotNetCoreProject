@@ -54,6 +54,9 @@ namespace DotNetCoreWebApp
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
+            services.AddMemoryCache();
+            services.AddSession(); 
+
             services.AddMvc();
 
             // Add application services.
@@ -72,6 +75,7 @@ namespace DotNetCoreWebApp
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+            app.UseSession();
 
             if (env.IsDevelopment())
             {
