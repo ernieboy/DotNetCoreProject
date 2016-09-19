@@ -4,7 +4,6 @@ using DotNetCoreWebApp.Data;
 using DotNetCoreWebAppModels.Models;
 using DotNetCoreWebApp.Services;
 using DotNetCoreWebAppBusiness.Business;
-using DotNetCoreWebAppBusiness.Business.Interfaces;
 using DotNetCoreWebAppDataAccess;
 using DotNetCoreWebAppDataAccess.Repositories;
 using Microsoft.AspNetCore.Builder;
@@ -61,8 +60,10 @@ namespace DotNetCoreWebApp
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
 
-           // services.AddScoped<IArtistsRepository, ArtistsRepository>();
+            //Repositories services 
             services.AddScoped<IDataRepository<Artist>, ArtistsRepository>();
+
+            //Entity business services
             services.AddScoped<IEntityBusiness<Artist>, ArtistEntityBusiness>();
         }
 
