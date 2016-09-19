@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Core.Common.Data.Business;
 using Core.Common.Data.Models;
-using DotNetCoreWebAppBusiness.Business.Interfaces;
 using DotNetCoreWebAppModels.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,10 +11,9 @@ namespace DotNetCoreWebApp.Controllers.Api
     public sealed class ArtistsController : BaseApiController
     {
 
-        private readonly IArtistEntityBusiness _artistEntityBusiness;
+        private readonly IEntityBusiness<Artist> _artistEntityBusiness;
 
-        public ArtistsController(
-            IArtistEntityBusiness artistEntityBusiness)
+        public ArtistsController(IEntityBusiness<Artist> artistEntityBusiness)
         {
             _artistEntityBusiness = artistEntityBusiness;
         }

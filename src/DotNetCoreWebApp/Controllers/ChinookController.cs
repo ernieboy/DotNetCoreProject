@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Core.Common.Data.Business;
 using Core.Common.Data.Interfaces;
 using Core.Common.Data.Models;
 using DotNetCoreWebApp.EditModels;
 using DotNetCoreWebApp.ViewModels;
-using DotNetCoreWebAppBusiness.Business.Interfaces;
 using DotNetCoreWebAppModels.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -14,10 +14,10 @@ namespace DotNetCoreWebApp.Controllers
 
     public class ChinookController : BaseController
     {
-        private readonly IArtistEntityBusiness _artistEntityBusiness;
+        private readonly IEntityBusiness<Artist> _artistEntityBusiness;
 
         public ChinookController(
-             IArtistEntityBusiness artistEntityBusiness, IHostingEnvironment hostingEnvironment)
+             IEntityBusiness<Artist> artistEntityBusiness, IHostingEnvironment hostingEnvironment)
         {
             _artistEntityBusiness = artistEntityBusiness;
             this.hostingEnvironment = hostingEnvironment;

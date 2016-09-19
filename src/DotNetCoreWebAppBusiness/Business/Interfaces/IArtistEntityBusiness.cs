@@ -1,4 +1,4 @@
-using DotNetCoreWebApp.Business.Interfaces;
+using Core.Common.Data.Business;
 using DotNetCoreWebAppModels.Models;
 
 namespace DotNetCoreWebAppBusiness.Business.Interfaces

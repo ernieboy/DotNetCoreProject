@@ -1,3 +1,5 @@
+using Core.Common.Data.Business;
+using Core.Common.Data.Interfaces;
 using DotNetCoreWebApp.Data;
 using DotNetCoreWebAppModels.Models;
 using DotNetCoreWebApp.Services;
@@ -59,8 +61,9 @@ namespace DotNetCoreWebApp
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
 
-            services.AddScoped<IArtistsRepository, ArtistsRepository>();
-            services.AddScoped<IArtistEntityBusiness, ArtistEntityBusiness>();
+           // services.AddScoped<IArtistsRepository, ArtistsRepository>();
+            services.AddScoped<IDataRepository<Artist>, ArtistsRepository>();
+            services.AddScoped<IEntityBusiness<Artist>, ArtistEntityBusiness>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
