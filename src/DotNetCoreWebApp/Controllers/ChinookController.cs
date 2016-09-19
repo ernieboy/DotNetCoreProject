@@ -97,7 +97,8 @@ namespace DotNetCoreWebApp.Controllers
                 model.ObjectState = ObjectState.Added;
                 Artist artist = _artistEntityBusiness.Map<ArtistEditModel, Artist>(model);
                 await _artistEntityBusiness.PersistEntity(artist);
-                return View(model);
+                TempData["saved"] = "y";
+                return RedirectToAction("Artists");
             });
         }
 
