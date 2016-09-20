@@ -1,3 +1,6 @@
+declare var thisApplication: Object;
+var appRoot: string = thisApplication.rootPath + '/';
+var apiRoot: string = appRoot + 'api/';
 export let Config = {
   pageActions: {
     list: 0,
@@ -6,8 +9,8 @@ export let Config = {
     add: 3
   },
   apiUrls: {
-   artistsListing: '/api/artists' ,
-   findArtistById: '/api/artists/{id}'  
+      artistsListing: apiRoot + 'artists' ,
+      findArtistById: apiRoot + 'artists/{id}'  
   },
   entityFrameworkEntityState: {
         Unchanged: 0,
