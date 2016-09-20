@@ -70,32 +70,32 @@ else
     }
     <form asp-controller="Chinook" asp-action="Artists" method="GET">
         <label asp-for="SearchTerms">Search terms (separated by comma)</label>
-        <input asp-for="SearchTerms" />
+        <input asp-for="SearchTerms" class="form-control input-group-sm"/>
 
 
         <label asp-for="SortCol">Sort column</label>
-        <select asp-for="SortCol" asp-items="Model.SortColumns"> </select>
+        <select asp-for="SortCol" asp-items="Model.SortColumns" class="form-control input-group-sm"> </select>
         <label asp-for="SortDir">Sort Direction</label>
-        <select asp-for="SortDir" asp-items="Model.SortDirections"> </select>
+        <select asp-for="SortDir" asp-items="Model.SortDirections" class="form-control input-group-sm"> </select>
 
-        <input type="submit" value="Search" />
+        <input type="submit" value="Search" class="btn btn-sm" />
 
     </form>
     @await Component.InvokeAsync("ListPager",
-            new
-            {
-                controllerName = "Chinook",
-                controllerAction = "Artists",
-                totalNumberOfItems = ViewBag.totalRecords,
-                pageNumber = ViewBag.pageIndex,
-                pageSize = ViewBag.sizeOfPage,
-                totalNumberOfPages = ViewBag.totalNumberOfPages,
-                offset = ViewBag.offset,
-                offsetUpperBound = ViewBag.offsetUpperBound,
-                searchTerms = ViewBag.searchTerms,
-                sortCol = ViewBag.sortCol,
-                sortDir = ViewBag.sortDir
-            })
+         new
+         {
+             controllerName = "Chinook",
+             controllerAction = "Artists",
+             totalNumberOfItems = ViewBag.totalRecords,
+             pageNumber = ViewBag.pageIndex,
+             pageSize = ViewBag.sizeOfPage,
+             totalNumberOfPages = ViewBag.totalNumberOfPages,
+             offset = ViewBag.offset,
+             offsetUpperBound = ViewBag.offsetUpperBound,
+             searchTerms = ViewBag.searchTerms,
+             sortCol = ViewBag.sortCol,
+             sortDir = ViewBag.sortDir
+         });
 }
 
 
