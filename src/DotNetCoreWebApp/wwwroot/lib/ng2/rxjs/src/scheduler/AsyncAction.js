@@ -1,22 +1,22 @@
-System.register(['../util/root', './Action'], function(exports_1, context_1) {
+System.register(["../util/root", "./Action"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
-    var root_1, Action_1;
-    var AsyncAction;
+    var __moduleName = context_1 && context_1.id;
+    var root_1, Action_1, AsyncAction;
     return {
-        setters:[
+        setters: [
             function (root_1_1) {
                 root_1 = root_1_1;
             },
             function (Action_1_1) {
                 Action_1 = Action_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
             /**
              * We need this JSDoc comment for affecting ESDoc.
              * @ignore
@@ -25,10 +25,11 @@ System.register(['../util/root', './Action'], function(exports_1, context_1) {
             AsyncAction = (function (_super) {
                 __extends(AsyncAction, _super);
                 function AsyncAction(scheduler, work) {
-                    _super.call(this, scheduler, work);
-                    this.scheduler = scheduler;
-                    this.work = work;
-                    this.pending = false;
+                    var _this = _super.call(this, scheduler, work) || this;
+                    _this.scheduler = scheduler;
+                    _this.work = work;
+                    _this.pending = false;
+                    return _this;
                 }
                 AsyncAction.prototype.schedule = function (state, delay) {
                     if (delay === void 0) { delay = 0; }
@@ -151,6 +152,6 @@ System.register(['../util/root', './Action'], function(exports_1, context_1) {
             }(Action_1.Action));
             exports_1("AsyncAction", AsyncAction);
         }
-    }
+    };
 });
 //# sourceMappingURL=AsyncAction.js.map

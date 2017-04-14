@@ -1,14 +1,14 @@
-System.register(['./SubscriptionLog'], function(exports_1, context_1) {
+System.register(["./SubscriptionLog"], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var SubscriptionLog_1;
-    var SubscriptionLoggable;
+    var SubscriptionLog_1, SubscriptionLoggable;
     return {
-        setters:[
+        setters: [
             function (SubscriptionLog_1_1) {
                 SubscriptionLog_1 = SubscriptionLog_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
             SubscriptionLoggable = (function () {
                 function SubscriptionLoggable() {
                     this.subscriptions = [];
@@ -26,6 +26,6 @@ System.register(['./SubscriptionLog'], function(exports_1, context_1) {
             }());
             exports_1("SubscriptionLoggable", SubscriptionLoggable);
         }
-    }
+    };
 });
 //# sourceMappingURL=SubscriptionLoggable.js.map

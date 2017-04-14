@@ -1,0 +1,23 @@
+
+@model DotNetCoreWebApp.EditModels.ArtistEditModel
+
+<br /> <br />
+<form asp-controller="Chinook" class="form-horizontal" role="form"
+      asp-action="EditArtist">
+
+    <div class="form-group">
+        <label asp-for="Name" class="control-label col-sm-2">Name</label>
+        <div class="col-md-10">
+            <input asp-for="Name" class="form-control input-group-lg" />
+        </div>
+    </div>
+
+    <input type="hidden" asp-for="ArtistId" />
+
+    <div>
+        <div class="col-sm-offset-3">
+            <input type="submit" value="Save" class="btn btn-default "/>
+            <a asp-controller="Chinook" asp-action="Artists" class="btn btn-default">Cancel</a>
+        </div>
+    </div>
+</form>

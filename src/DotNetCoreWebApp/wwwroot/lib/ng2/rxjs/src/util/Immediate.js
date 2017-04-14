@@ -1,17 +1,19 @@
 /**
 Some credit for this helper goes to http://github.com/YuzuJS/setImmediate
 */
-System.register(['./root'], function(exports_1, context_1) {
+System.register(["./root"], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var root_1;
-    var ImmediateDefinition, Immediate;
+    var root_1, ImmediateDefinition, Immediate;
     return {
-        setters:[
+        setters: [
             function (root_1_1) {
                 root_1 = root_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {/**
+            Some credit for this helper goes to http://github.com/YuzuJS/setImmediate
+            */
             ImmediateDefinition = (function () {
                 function ImmediateDefinition(root) {
                     this.root = root;
@@ -216,6 +218,6 @@ System.register(['./root'], function(exports_1, context_1) {
             exports_1("ImmediateDefinition", ImmediateDefinition);
             exports_1("Immediate", Immediate = new ImmediateDefinition(root_1.root));
         }
-    }
+    };
 });
 //# sourceMappingURL=Immediate.js.map

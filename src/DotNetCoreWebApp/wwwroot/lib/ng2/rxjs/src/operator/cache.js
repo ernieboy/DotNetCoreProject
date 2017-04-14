@@ -1,7 +1,6 @@
-System.register(['../Observable', '../ReplaySubject'], function(exports_1, context_1) {
+System.register(["../Observable", "../ReplaySubject"], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var Observable_1, ReplaySubject_1;
     /**
      * @param bufferSize
      * @param windowTime
@@ -47,16 +46,18 @@ System.register(['../Observable', '../ReplaySubject'], function(exports_1, conte
         });
     }
     exports_1("cache", cache);
+    var Observable_1, ReplaySubject_1;
     return {
-        setters:[
+        setters: [
             function (Observable_1_1) {
                 Observable_1 = Observable_1_1;
             },
             function (ReplaySubject_1_1) {
                 ReplaySubject_1 = ReplaySubject_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
         }
-    }
+    };
 });
 //# sourceMappingURL=cache.js.map

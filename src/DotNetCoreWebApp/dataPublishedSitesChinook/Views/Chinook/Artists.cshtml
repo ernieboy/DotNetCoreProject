@@ -1,0 +1,102 @@
+@model DotNetCoreWebApp.ViewModels.ArtistViewModel
+
+@{
+    ViewData["Title"] = "Items";
+}
+<h2>@ViewData["Title"].</h2>
+<h3>@ViewData["Message"]</h3>
+
+<a href="/Chinook/AddArtist">Add item</a>
+
+@if (TempData["saved"] != null)
+{
+    <div class="alert alert-success">Record saved successfully</div>
+}
+
+@if (TempData["deletedOk"] != null)
+{
+    <div class="alert alert-success">Record deleted successfully</div>
+}
+
+
+
+@if (Model == null)
+{
+    <div>Sorry there was a probleam loading data from the database.</div>
+}
+else
+{
+    if (Model.ArtistsList.Count() > 0)
+    {
+        <table class="table">
+            <tr>
+                <th>Artist Id</th>
+                <th>Name</th>
+                <th>Albums count</th>
+                <th></th>
+            </tr>
+            @foreach (var artist in Model.ArtistsList)
+            {
+                <tr>
+                    <td>
+                        @artist.ArtistId
+                    </td>
+                    <td>
+                        @artist.Name
+                    </td>
+                    <td>
+                        @artist.Album.Count()
+                    </td>
+                    <td>
+                        <a asp-controller="Chinook"
+                           asp-action="EditArtist"
+                           asp-route-id="@artist.ArtistId">
+                            Edit
+                        </a> |
+                        <a asp-controller="Chinook"
+                           asp-action="DeleteArtist"
+                           asp-route-id="@artist.ArtistId">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+    }
+    else
+    {
+        <div>Sorry, there is nothing to show!</div>
+    }
+    <form asp-controller="Chinook" asp-action="Artists" method="GET">
+        <label asp-for="SearchTerms">Search terms (separated by comma)</label>
+        <input asp-for="SearchTerms" class="form-control input-group-sm"/>
+
+
+        <label asp-for="SortCol">Sort column</label>
+        <select asp-for="SortCol" asp-items="Model.SortColumns" class="form-control input-group-sm"> </select>
+        <label asp-for="SortDir">Sort Direction</label>
+        <select asp-for="SortDir" asp-items="Model.SortDirections" class="form-control input-group-sm"> </select>
+
+        <input type="submit" value="Search" class="btn btn-sm" />
+
+    </form>
+    @await Component.InvokeAsync("ListPager",
+         new
+         {
+             controllerName = "Chinook",
+             controllerAction = "Artists",
+             totalNumberOfItems = ViewBag.totalRecords,
+             pageNumber = ViewBag.pageIndex,
+             pageSize = ViewBag.sizeOfPage,
+             totalNumberOfPages = ViewBag.totalNumberOfPages,
+             offset = ViewBag.offset,
+             offsetUpperBound = ViewBag.offsetUpperBound,
+             searchTerms = ViewBag.searchTerms,
+             sortCol = ViewBag.sortCol,
+             sortDir = ViewBag.sortDir
+         });
+}
+
+
+

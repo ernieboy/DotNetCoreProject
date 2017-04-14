@@ -1,19 +1,19 @@
-System.register(['./Subscriber'], function(exports_1, context_1) {
+System.register(["./Subscriber"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
-    var Subscriber_1;
-    var OuterSubscriber;
+    var __moduleName = context_1 && context_1.id;
+    var Subscriber_1, OuterSubscriber;
     return {
-        setters:[
+        setters: [
             function (Subscriber_1_1) {
                 Subscriber_1 = Subscriber_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
             /**
              * We need this JSDoc comment for affecting ESDoc.
              * @ignore
@@ -22,7 +22,7 @@ System.register(['./Subscriber'], function(exports_1, context_1) {
             OuterSubscriber = (function (_super) {
                 __extends(OuterSubscriber, _super);
                 function OuterSubscriber() {
-                    _super.apply(this, arguments);
+                    return _super !== null && _super.apply(this, arguments) || this;
                 }
                 OuterSubscriber.prototype.notifyNext = function (outerValue, innerValue, outerIndex, innerIndex, innerSub) {
                     this.destination.next(innerValue);
@@ -37,6 +37,6 @@ System.register(['./Subscriber'], function(exports_1, context_1) {
             }(Subscriber_1.Subscriber));
             exports_1("OuterSubscriber", OuterSubscriber);
         }
-    }
+    };
 });
 //# sourceMappingURL=OuterSubscriber.js.map

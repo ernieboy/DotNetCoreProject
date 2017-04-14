@@ -1,15 +1,14 @@
-System.register(['../Subject', '../Subscription', './SubscriptionLoggable', '../util/applyMixins'], function(exports_1, context_1) {
+System.register(["../Subject", "../Subscription", "./SubscriptionLoggable", "../util/applyMixins"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
-    var Subject_1, Subscription_1, SubscriptionLoggable_1, applyMixins_1;
-    var HotObservable;
+    var __moduleName = context_1 && context_1.id;
+    var Subject_1, Subscription_1, SubscriptionLoggable_1, applyMixins_1, HotObservable;
     return {
-        setters:[
+        setters: [
             function (Subject_1_1) {
                 Subject_1 = Subject_1_1;
             },
@@ -21,8 +20,9 @@ System.register(['../Subject', '../Subscription', './SubscriptionLoggable', '../
             },
             function (applyMixins_1_1) {
                 applyMixins_1 = applyMixins_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
             /**
              * We need this JSDoc comment for affecting ESDoc.
              * @ignore
@@ -31,10 +31,11 @@ System.register(['../Subject', '../Subscription', './SubscriptionLoggable', '../
             HotObservable = (function (_super) {
                 __extends(HotObservable, _super);
                 function HotObservable(messages, scheduler) {
-                    _super.call(this);
-                    this.messages = messages;
-                    this.subscriptions = [];
-                    this.scheduler = scheduler;
+                    var _this = _super.call(this) || this;
+                    _this.messages = messages;
+                    _this.subscriptions = [];
+                    _this.scheduler = scheduler;
+                    return _this;
                 }
                 HotObservable.prototype._subscribe = function (subscriber) {
                     var subject = this;
@@ -61,6 +62,6 @@ System.register(['../Subject', '../Subscription', './SubscriptionLoggable', '../
             exports_1("HotObservable", HotObservable);
             applyMixins_1.applyMixins(HotObservable, [SubscriptionLoggable_1.SubscriptionLoggable]);
         }
-    }
+    };
 });
 //# sourceMappingURL=HotObservable.js.map

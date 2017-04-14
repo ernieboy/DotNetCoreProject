@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <DebugType>portable</DebugType>
+    <AssemblyName>DotNetCoreWebAppBusiness</AssemblyName>
+    <PackageId>DotNetCoreWebAppBusiness</PackageId>
+    <PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
+    <RuntimeFrameworkVersion>1.0.4</RuntimeFrameworkVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\DotNetCoreLibrary\DotNetCoreLibrary.csproj" />
+    <ProjectReference Include="..\DotNetCoreWebAppDataAccess\DotNetCoreWebAppDataAccess.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.0.5.4" />
+  </ItemGroup>
+
+</Project>

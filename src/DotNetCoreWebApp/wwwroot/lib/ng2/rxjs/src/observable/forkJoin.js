@@ -1,16 +1,16 @@
-System.register(['./ForkJoinObservable'], function(exports_1, context_1) {
+System.register(["./ForkJoinObservable"], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var ForkJoinObservable_1;
-    var forkJoin;
+    var ForkJoinObservable_1, forkJoin;
     return {
-        setters:[
+        setters: [
             function (ForkJoinObservable_1_1) {
                 ForkJoinObservable_1 = ForkJoinObservable_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
             exports_1("forkJoin", forkJoin = ForkJoinObservable_1.ForkJoinObservable.create);
         }
-    }
+    };
 });
 //# sourceMappingURL=forkJoin.js.map

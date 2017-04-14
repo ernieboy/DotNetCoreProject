@@ -1,10 +1,10 @@
-System.register([], function(exports_1, context_1) {
+System.register([], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var MapPolyfill;
     return {
-        setters:[],
-        execute: function() {
+        setters: [],
+        execute: function () {
             MapPolyfill = (function () {
                 function MapPolyfill() {
                     this.size = 0;
@@ -51,6 +51,6 @@ System.register([], function(exports_1, context_1) {
             }());
             exports_1("MapPolyfill", MapPolyfill);
         }
-    }
+    };
 });
 //# sourceMappingURL=MapPolyfill.js.map

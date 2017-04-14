@@ -1,4 +1,4 @@
-System.register([], function(exports_1, context_1) {
+System.register([], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     function applyMixins(derivedCtor, baseCtors) {
@@ -13,9 +13,9 @@ System.register([], function(exports_1, context_1) {
     }
     exports_1("applyMixins", applyMixins);
     return {
-        setters:[],
-        execute: function() {
+        setters: [],
+        execute: function () {
         }
-    }
+    };
 });
 //# sourceMappingURL=applyMixins.js.map

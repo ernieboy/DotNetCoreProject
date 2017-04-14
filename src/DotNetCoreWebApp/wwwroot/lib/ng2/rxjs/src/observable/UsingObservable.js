@@ -1,15 +1,14 @@
-System.register(['../Observable', '../util/subscribeToResult', '../OuterSubscriber'], function(exports_1, context_1) {
+System.register(["../Observable", "../util/subscribeToResult", "../OuterSubscriber"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
-    var Observable_1, subscribeToResult_1, OuterSubscriber_1;
-    var UsingObservable, UsingSubscriber;
+    var __moduleName = context_1 && context_1.id;
+    var Observable_1, subscribeToResult_1, OuterSubscriber_1, UsingObservable, UsingSubscriber;
     return {
-        setters:[
+        setters: [
             function (Observable_1_1) {
                 Observable_1 = Observable_1_1;
             },
@@ -18,8 +17,9 @@ System.register(['../Observable', '../util/subscribeToResult', '../OuterSubscrib
             },
             function (OuterSubscriber_1_1) {
                 OuterSubscriber_1 = OuterSubscriber_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
             /**
              * We need this JSDoc comment for affecting ESDoc.
              * @extends {Ignored}
@@ -28,9 +28,10 @@ System.register(['../Observable', '../util/subscribeToResult', '../OuterSubscrib
             UsingObservable = (function (_super) {
                 __extends(UsingObservable, _super);
                 function UsingObservable(resourceFactory, observableFactory) {
-                    _super.call(this);
-                    this.resourceFactory = resourceFactory;
-                    this.observableFactory = observableFactory;
+                    var _this = _super.call(this) || this;
+                    _this.resourceFactory = resourceFactory;
+                    _this.observableFactory = observableFactory;
+                    return _this;
                 }
                 UsingObservable.create = function (resourceFactory, observableFactory) {
                     return new UsingObservable(resourceFactory, observableFactory);
@@ -52,11 +53,12 @@ System.register(['../Observable', '../util/subscribeToResult', '../OuterSubscrib
             UsingSubscriber = (function (_super) {
                 __extends(UsingSubscriber, _super);
                 function UsingSubscriber(destination, resource, observableFactory) {
-                    _super.call(this, destination);
-                    this.resource = resource;
-                    this.observableFactory = observableFactory;
+                    var _this = _super.call(this, destination) || this;
+                    _this.resource = resource;
+                    _this.observableFactory = observableFactory;
                     destination.add(resource);
-                    this.tryUse();
+                    _this.tryUse();
+                    return _this;
                 }
                 UsingSubscriber.prototype.tryUse = function () {
                     try {
@@ -72,6 +74,6 @@ System.register(['../Observable', '../util/subscribeToResult', '../OuterSubscrib
                 return UsingSubscriber;
             }(OuterSubscriber_1.OuterSubscriber));
         }
-    }
+    };
 });
 //# sourceMappingURL=UsingObservable.js.map

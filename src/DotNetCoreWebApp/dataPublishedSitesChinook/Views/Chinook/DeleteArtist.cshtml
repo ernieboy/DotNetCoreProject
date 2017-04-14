@@ -1,0 +1,57 @@
+@using Microsoft.AspNetCore.Mvc.ModelBinding
+@model DotNetCoreWebApp.EditModels.ArtistDeleteModel
+
+<h3>Are you sure you want to delete this?</h3>
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div asp-validation-summary="All" class="alert alert-warning text-danger"></div>
+}
+
+
+<form asp-controller="Chinook" class="form-horizontal" role="form"
+      asp-action="DeleteArtist">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label col-sm-2">Name</label>
+        <div class="col-md-10">
+            <span class="form-control input-group-lg">@Model.Name</span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ArtistId" class="control-label col-sm-2">Artist Id</label>
+        <div class="col-md-10">
+            <span class="form-control input-group-lg">@Model.ArtistId</span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DeleteConfirmed" class="control-label col-sm-2">Confirm</label>
+        <div class="col-md-10">
+            <input type="checkbox" asp-for="DeleteConfirmed" class="form-control input-group-lg"/>
+        </div>
+    </div>
+
+    <input type="hidden" asp-for="ArtistId"/>
+    <input type="hidden" asp-for="DeleteConfirmed" />
+
+    <div>
+        <div class="col-sm-offset-3">
+            <input type="submit" value="Delete" class="btn btn-default btn-danger" />
+            <a asp-action="Artists" class="btn btn-default">Cancel</a>
+        </div>
+    </div>
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+

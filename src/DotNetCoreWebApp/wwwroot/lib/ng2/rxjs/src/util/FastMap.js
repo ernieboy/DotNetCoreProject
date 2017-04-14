@@ -1,10 +1,10 @@
-System.register([], function(exports_1, context_1) {
+System.register([], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var FastMap;
     return {
-        setters:[],
-        execute: function() {
+        setters: [],
+        execute: function () {
             FastMap = (function () {
                 function FastMap() {
                     this.values = {};
@@ -35,6 +35,6 @@ System.register([], function(exports_1, context_1) {
             }());
             exports_1("FastMap", FastMap);
         }
-    }
+    };
 });
 //# sourceMappingURL=FastMap.js.map

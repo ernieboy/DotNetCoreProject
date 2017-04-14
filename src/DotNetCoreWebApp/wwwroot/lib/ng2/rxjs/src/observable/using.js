@@ -1,16 +1,16 @@
-System.register(['./UsingObservable'], function(exports_1, context_1) {
+System.register(["./UsingObservable"], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var UsingObservable_1;
-    var using;
+    var UsingObservable_1, using;
     return {
-        setters:[
+        setters: [
             function (UsingObservable_1_1) {
                 UsingObservable_1 = UsingObservable_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
             exports_1("using", using = UsingObservable_1.UsingObservable.create);
         }
-    }
+    };
 });
 //# sourceMappingURL=using.js.map

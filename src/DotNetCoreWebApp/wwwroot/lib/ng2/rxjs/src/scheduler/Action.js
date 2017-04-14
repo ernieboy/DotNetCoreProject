@@ -1,19 +1,19 @@
-System.register(['../Subscription'], function(exports_1, context_1) {
+System.register(["../Subscription"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
-    var Subscription_1;
-    var Action;
+    var __moduleName = context_1 && context_1.id;
+    var Subscription_1, Action;
     return {
-        setters:[
+        setters: [
             function (Subscription_1_1) {
                 Subscription_1 = Subscription_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
             /**
              * A unit of work to be executed in a {@link Scheduler}. An action is typically
              * created from within a Scheduler and an RxJS user does not need to concern
@@ -31,7 +31,7 @@ System.register(['../Subscription'], function(exports_1, context_1) {
             Action = (function (_super) {
                 __extends(Action, _super);
                 function Action(scheduler, work) {
-                    _super.call(this);
+                    return _super.call(this) || this;
                 }
                 /**
                  * Schedules this action on its parent Scheduler for execution. May be passed
@@ -51,6 +51,6 @@ System.register(['../Subscription'], function(exports_1, context_1) {
             }(Subscription_1.Subscription));
             exports_1("Action", Action);
         }
-    }
+    };
 });
 //# sourceMappingURL=Action.js.map

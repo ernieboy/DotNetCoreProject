@@ -1,19 +1,19 @@
-System.register(['../Observable'], function(exports_1, context_1) {
+System.register(["../Observable"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
-    var Observable_1;
-    var ScalarObservable;
+    var __moduleName = context_1 && context_1.id;
+    var Observable_1, ScalarObservable;
     return {
-        setters:[
+        setters: [
             function (Observable_1_1) {
                 Observable_1 = Observable_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
             /**
              * We need this JSDoc comment for affecting ESDoc.
              * @extends {Ignored}
@@ -22,13 +22,14 @@ System.register(['../Observable'], function(exports_1, context_1) {
             ScalarObservable = (function (_super) {
                 __extends(ScalarObservable, _super);
                 function ScalarObservable(value, scheduler) {
-                    _super.call(this);
-                    this.value = value;
-                    this.scheduler = scheduler;
-                    this._isScalar = true;
+                    var _this = _super.call(this) || this;
+                    _this.value = value;
+                    _this.scheduler = scheduler;
+                    _this._isScalar = true;
                     if (scheduler) {
-                        this._isScalar = false;
+                        _this._isScalar = false;
                     }
+                    return _this;
                 }
                 ScalarObservable.create = function (value, scheduler) {
                     return new ScalarObservable(value, scheduler);
@@ -65,6 +66,6 @@ System.register(['../Observable'], function(exports_1, context_1) {
             }(Observable_1.Observable));
             exports_1("ScalarObservable", ScalarObservable);
         }
-    }
+    };
 });
 //# sourceMappingURL=ScalarObservable.js.map

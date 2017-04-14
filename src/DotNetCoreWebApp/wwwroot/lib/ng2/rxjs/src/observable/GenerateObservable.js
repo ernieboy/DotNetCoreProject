@@ -1,22 +1,22 @@
-System.register(['../Observable', '../util/isScheduler'], function(exports_1, context_1) {
+System.register(["../Observable", "../util/isScheduler"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
-    var Observable_1, isScheduler_1;
-    var selfSelector, GenerateObservable;
+    var __moduleName = context_1 && context_1.id;
+    var Observable_1, isScheduler_1, selfSelector, GenerateObservable;
     return {
-        setters:[
+        setters: [
             function (Observable_1_1) {
                 Observable_1 = Observable_1_1;
             },
             function (isScheduler_1_1) {
                 isScheduler_1 = isScheduler_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
             selfSelector = function (value) { return value; };
             /**
              * We need this JSDoc comment for affecting ESDoc.
@@ -26,12 +26,13 @@ System.register(['../Observable', '../util/isScheduler'], function(exports_1, co
             GenerateObservable = (function (_super) {
                 __extends(GenerateObservable, _super);
                 function GenerateObservable(initialState, condition, iterate, resultSelector, scheduler) {
-                    _super.call(this);
-                    this.initialState = initialState;
-                    this.condition = condition;
-                    this.iterate = iterate;
-                    this.resultSelector = resultSelector;
-                    this.scheduler = scheduler;
+                    var _this = _super.call(this) || this;
+                    _this.initialState = initialState;
+                    _this.condition = condition;
+                    _this.iterate = iterate;
+                    _this.resultSelector = resultSelector;
+                    _this.scheduler = scheduler;
+                    return _this;
                 }
                 GenerateObservable.create = function (initialStateOrOptions, condition, iterate, resultSelectorOrObservable, scheduler) {
                     if (arguments.length == 1) {
@@ -50,7 +51,8 @@ System.register(['../Observable', '../util/isScheduler'], function(exports_1, co
                             iterate: this.iterate,
                             condition: this.condition,
                             resultSelector: this.resultSelector,
-                            state: state });
+                            state: state
+                        });
                     }
                     var _a = this, condition = _a.condition, resultSelector = _a.resultSelector, iterate = _a.iterate;
                     do {
@@ -144,6 +146,6 @@ System.register(['../Observable', '../util/isScheduler'], function(exports_1, co
             }(Observable_1.Observable));
             exports_1("GenerateObservable", GenerateObservable);
         }
-    }
+    };
 });
 //# sourceMappingURL=GenerateObservable.js.map

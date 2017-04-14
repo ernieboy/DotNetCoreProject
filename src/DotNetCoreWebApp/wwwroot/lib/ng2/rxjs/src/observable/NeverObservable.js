@@ -1,22 +1,22 @@
-System.register(['../Observable', '../util/noop'], function(exports_1, context_1) {
+System.register(["../Observable", "../util/noop"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
-    var Observable_1, noop_1;
-    var NeverObservable;
+    var __moduleName = context_1 && context_1.id;
+    var Observable_1, noop_1, NeverObservable;
     return {
-        setters:[
+        setters: [
             function (Observable_1_1) {
                 Observable_1 = Observable_1_1;
             },
             function (noop_1_1) {
                 noop_1 = noop_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
             /**
              * We need this JSDoc comment for affecting ESDoc.
              * @extends {Ignored}
@@ -25,7 +25,7 @@ System.register(['../Observable', '../util/noop'], function(exports_1, context_1
             NeverObservable = (function (_super) {
                 __extends(NeverObservable, _super);
                 function NeverObservable() {
-                    _super.call(this);
+                    return _super.call(this) || this;
                 }
                 /**
                  * Creates an Observable that emits no items to the Observer.
@@ -68,6 +68,6 @@ System.register(['../Observable', '../util/noop'], function(exports_1, context_1
             }(Observable_1.Observable));
             exports_1("NeverObservable", NeverObservable);
         }
-    }
+    };
 });
 //# sourceMappingURL=NeverObservable.js.map

@@ -1,19 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DotNetCoreWebApp", "src\DotNetCoreWebApp\DotNetCoreWebApp.xproj", "{E3B340FA-8AA7-4475-AD7E-B44448AB8F94}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetCoreWebApp", "src\DotNetCoreWebApp\DotNetCoreWebApp.csproj", "{E3B340FA-8AA7-4475-AD7E-B44448AB8F94}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DotNetCoreWebAppBusiness", "src\DotNetCoreWebAppBusiness\DotNetCoreWebAppBusiness.xproj", "{784832B2-8962-49C1-B61B-B6AE47EFCFB8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetCoreWebAppBusiness", "src\DotNetCoreWebAppBusiness\DotNetCoreWebAppBusiness.csproj", "{784832B2-8962-49C1-B61B-B6AE47EFCFB8}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DotNetCoreWebAppDataAccess", "src\DotNetCoreWebAppDataAccess\DotNetCoreWebAppDataAccess.xproj", "{232256BD-AB26-49B6-A6E7-DB5C83867553}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetCoreWebAppDataAccess", "src\DotNetCoreWebAppDataAccess\DotNetCoreWebAppDataAccess.csproj", "{232256BD-AB26-49B6-A6E7-DB5C83867553}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DotNetCoreWebAppModels", "src\DotNetCoreWebAppModels\DotNetCoreWebAppModels.xproj", "{7A919BBB-CBC6-4BFF-9C4A-DB9E7BCE095D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetCoreWebAppModels", "src\DotNetCoreWebAppModels\DotNetCoreWebAppModels.csproj", "{7A919BBB-CBC6-4BFF-9C4A-DB9E7BCE095D}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "test", "test\test.xproj", "{511FB34F-FB4A-4DAC-8314-687710F4B480}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "test", "test\test.csproj", "{511FB34F-FB4A-4DAC-8314-687710F4B480}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DotNetCoreLibrary", "..\DotNetCoreLibrary\DotNetCoreLibrary.xproj", "{77FA9AA8-D721-4B22-97A4-045F458AB8DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetCoreLibrary", "..\DotNetCoreLibrary\DotNetCoreLibrary.csproj", "{77FA9AA8-D721-4B22-97A4-045F458AB8DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

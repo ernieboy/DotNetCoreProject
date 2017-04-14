@@ -1,10 +1,10 @@
-System.register([], function(exports_1, context_1) {
+System.register([], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var SubscriptionLog;
     return {
-        setters:[],
-        execute: function() {
+        setters: [],
+        execute: function () {
             SubscriptionLog = (function () {
                 function SubscriptionLog(subscribedFrame, unsubscribedFrame) {
                     if (unsubscribedFrame === void 0) { unsubscribedFrame = Number.POSITIVE_INFINITY; }
@@ -15,6 +15,6 @@ System.register([], function(exports_1, context_1) {
             }());
             exports_1("SubscriptionLog", SubscriptionLog);
         }
-    }
+    };
 });
 //# sourceMappingURL=SubscriptionLog.js.map

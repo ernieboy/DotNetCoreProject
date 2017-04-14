@@ -1,8 +1,6 @@
-System.register(['./errorObject'], function(exports_1, context_1) {
+System.register(["./errorObject"], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var errorObject_1;
-    var tryCatchTarget;
     function tryCatcher() {
         try {
             return tryCatchTarget.apply(this, arguments);
@@ -17,14 +15,16 @@ System.register(['./errorObject'], function(exports_1, context_1) {
         return tryCatcher;
     }
     exports_1("tryCatch", tryCatch);
+    var errorObject_1, tryCatchTarget;
     return {
-        setters:[
+        setters: [
             function (errorObject_1_1) {
                 errorObject_1 = errorObject_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
             ;
         }
-    }
+    };
 });
 //# sourceMappingURL=tryCatch.js.map

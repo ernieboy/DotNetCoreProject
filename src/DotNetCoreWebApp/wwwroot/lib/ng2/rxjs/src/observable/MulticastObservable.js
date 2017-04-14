@@ -1,29 +1,30 @@
-System.register(['../Observable', '../observable/ConnectableObservable'], function(exports_1, context_1) {
+System.register(["../Observable", "../observable/ConnectableObservable"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
-    var Observable_1, ConnectableObservable_1;
-    var MulticastObservable;
+    var __moduleName = context_1 && context_1.id;
+    var Observable_1, ConnectableObservable_1, MulticastObservable;
     return {
-        setters:[
+        setters: [
             function (Observable_1_1) {
                 Observable_1 = Observable_1_1;
             },
             function (ConnectableObservable_1_1) {
                 ConnectableObservable_1 = ConnectableObservable_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
             MulticastObservable = (function (_super) {
                 __extends(MulticastObservable, _super);
                 function MulticastObservable(source, subjectFactory, selector) {
-                    _super.call(this);
-                    this.source = source;
-                    this.subjectFactory = subjectFactory;
-                    this.selector = selector;
+                    var _this = _super.call(this) || this;
+                    _this.source = source;
+                    _this.subjectFactory = subjectFactory;
+                    _this.selector = selector;
+                    return _this;
                 }
                 MulticastObservable.prototype._subscribe = function (subscriber) {
                     var _a = this, selector = _a.selector, source = _a.source;
@@ -36,6 +37,6 @@ System.register(['../Observable', '../observable/ConnectableObservable'], functi
             }(Observable_1.Observable));
             exports_1("MulticastObservable", MulticastObservable);
         }
-    }
+    };
 });
 //# sourceMappingURL=MulticastObservable.js.map

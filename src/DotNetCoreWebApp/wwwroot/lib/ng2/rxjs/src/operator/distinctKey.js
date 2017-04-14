@@ -1,7 +1,6 @@
-System.register(['./distinct'], function(exports_1, context_1) {
+System.register(["./distinct"], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var distinct_1;
     /**
      * Returns an Observable that emits all items emitted by the source Observable that are distinct by comparison from previous items,
      * using a property accessed by using the key provided to check if the two items are distinct.
@@ -25,13 +24,15 @@ System.register(['./distinct'], function(exports_1, context_1) {
         }, flushes);
     }
     exports_1("distinctKey", distinctKey);
+    var distinct_1;
     return {
-        setters:[
+        setters: [
             function (distinct_1_1) {
                 distinct_1 = distinct_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
         }
-    }
+    };
 });
 //# sourceMappingURL=distinctKey.js.map

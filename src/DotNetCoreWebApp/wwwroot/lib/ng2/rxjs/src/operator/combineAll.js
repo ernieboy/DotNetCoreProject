@@ -1,7 +1,6 @@
-System.register(['./combineLatest'], function(exports_1, context_1) {
+System.register(["./combineLatest"], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var combineLatest_1;
     /**
      * Converts a higher-order Observable into a first-order Observable by waiting
      * for the outer Observable to complete, then applying {@link combineLatest}.
@@ -46,13 +45,15 @@ System.register(['./combineLatest'], function(exports_1, context_1) {
         return this.lift(new combineLatest_1.CombineLatestOperator(project));
     }
     exports_1("combineAll", combineAll);
+    var combineLatest_1;
     return {
-        setters:[
+        setters: [
             function (combineLatest_1_1) {
                 combineLatest_1 = combineLatest_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
         }
-    }
+    };
 });
 //# sourceMappingURL=combineAll.js.map

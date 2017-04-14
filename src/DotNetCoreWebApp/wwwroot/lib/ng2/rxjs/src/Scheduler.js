@@ -1,10 +1,10 @@
-System.register([], function(exports_1, context_1) {
+System.register([], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var Scheduler;
     return {
-        setters:[],
-        execute: function() {
+        setters: [],
+        execute: function () {
             /**
              * An execution context and a data structure to order tasks and schedule their
              * execution. Provides a notion of (potentially virtual) time, through the
@@ -48,11 +48,11 @@ System.register([], function(exports_1, context_1) {
                     if (delay === void 0) { delay = 0; }
                     return new this.SchedulerAction(this, work).schedule(state, delay);
                 };
-                Scheduler.now = Date.now ? Date.now : function () { return +new Date(); };
                 return Scheduler;
             }());
+            Scheduler.now = Date.now ? Date.now : function () { return +new Date(); };
             exports_1("Scheduler", Scheduler);
         }
-    }
+    };
 });
 //# sourceMappingURL=Scheduler.js.map

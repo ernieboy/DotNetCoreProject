@@ -1,10 +1,10 @@
-System.register([], function(exports_1, context_1) {
+System.register([], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var empty;
     return {
-        setters:[],
-        execute: function() {
+        setters: [],
+        execute: function () {
             exports_1("empty", empty = {
                 closed: true,
                 next: function (value) { },
@@ -12,6 +12,6 @@ System.register([], function(exports_1, context_1) {
                 complete: function () { }
             });
         }
-    }
+    };
 });
 //# sourceMappingURL=Observer.js.map

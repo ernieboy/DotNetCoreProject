@@ -1,0 +1,42 @@
+ <environment names="Development">
+        <script src="~/lib/ng2/es6-shim.min.js"></script>
+        <script src="~/lib/ng2/system-polyfills.js"></script>
+        <script src="~/lib/ng2/angular2-polyfills.js"></script>    
+        <script src="~/lib/ng2/system.src.js"></script>
+        <script src="~/lib/ng2/rxjs/bundles/Rx.umd.js"></script>       
+        <script src="~/lib/ng2/angular2.dev.js"></script>
+        <script src="~/lib/ng2/http.dev.js"></script>
+        <script src="~/lib/ng2/router.dev.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+       <!-- <script src="~/js/angular.app.min.js" asp-append-version="true"></script> -->
+
+         <script src="~/lib/ng2/es6-shim.min.js"></script>
+        <script src="~/lib/ng2/system-polyfills.js"></script>
+        <script src="~/lib/ng2/angular2-polyfills.js"></script>    
+        <script src="~/lib/ng2/system.src.js"></script>
+        <script src="~/lib/ng2/rxjs/bundles/Rx.umd.js"></script>       
+        <script src="~/lib/ng2/angular2.dev.js"></script>
+        <script src="~/lib/ng2/http.dev.js"></script>
+        <script src="~/lib/ng2/router.dev.js"></script>
+       
+    </environment>
+
+   
+
+   <script>
+         System.config({
+            map: {
+                app: "/app"
+                ,rxjs: '/lib/ng2/rxjs'
+                //,rxjs: '/js/angular.app.min'
+             },
+            packages: {        
+                'app':  { defaultExtension: 'js'}
+                ,'rxjs': { defaultExtension: 'js'}
+            }
+    
+      });
+      System.import('@Model')
+            .then(null, console.error.bind(console));
+    </script>

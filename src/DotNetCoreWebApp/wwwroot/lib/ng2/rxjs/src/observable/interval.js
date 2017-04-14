@@ -1,16 +1,16 @@
-System.register(['./IntervalObservable'], function(exports_1, context_1) {
+System.register(["./IntervalObservable"], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var IntervalObservable_1;
-    var interval;
+    var IntervalObservable_1, interval;
     return {
-        setters:[
+        setters: [
             function (IntervalObservable_1_1) {
                 IntervalObservable_1 = IntervalObservable_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
             exports_1("interval", interval = IntervalObservable_1.IntervalObservable.create);
         }
-    }
+    };
 });
 //# sourceMappingURL=interval.js.map

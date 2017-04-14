@@ -1,16 +1,16 @@
-System.register(['../operator/merge'], function(exports_1, context_1) {
+System.register(["../operator/merge"], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var merge_1;
-    var merge;
+    var merge_1, merge;
     return {
-        setters:[
+        setters: [
             function (merge_1_1) {
                 merge_1 = merge_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
             exports_1("merge", merge = merge_1.mergeStatic);
         }
-    }
+    };
 });
 //# sourceMappingURL=merge.js.map

@@ -1,16 +1,16 @@
-System.register(['./FromEventObservable'], function(exports_1, context_1) {
+System.register(["./FromEventObservable"], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var FromEventObservable_1;
-    var fromEvent;
+    var FromEventObservable_1, fromEvent;
     return {
-        setters:[
+        setters: [
             function (FromEventObservable_1_1) {
                 FromEventObservable_1 = FromEventObservable_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
             exports_1("fromEvent", fromEvent = FromEventObservable_1.FromEventObservable.create);
         }
-    }
+    };
 });
 //# sourceMappingURL=fromEvent.js.map

@@ -1,14 +1,14 @@
-System.register(['./root'], function(exports_1, context_1) {
+System.register(["./root"], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var root_1;
-    var RequestAnimationFrameDefinition, AnimationFrame;
+    var root_1, RequestAnimationFrameDefinition, AnimationFrame;
     return {
-        setters:[
+        setters: [
             function (root_1_1) {
                 root_1 = root_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
             RequestAnimationFrameDefinition = (function () {
                 function RequestAnimationFrameDefinition(root) {
                     if (root.requestAnimationFrame) {
@@ -41,6 +41,6 @@ System.register(['./root'], function(exports_1, context_1) {
             exports_1("RequestAnimationFrameDefinition", RequestAnimationFrameDefinition);
             exports_1("AnimationFrame", AnimationFrame = new RequestAnimationFrameDefinition(root_1.root));
         }
-    }
+    };
 });
 //# sourceMappingURL=AnimationFrame.js.map
